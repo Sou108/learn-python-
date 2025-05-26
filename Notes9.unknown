@@ -1,0 +1,109 @@
+# read from a text file
+# create another file with name, number and distinction 
+# >= 90 EXC
+# >= 85 V. GOOF
+# >= 80 G
+# >= 70 P
+# Fail 
+# r stands for read 
+# w stands for write mode 
+# append mode -> will write but will append nto the file 
+# X mode -> if file is present, it will give you an exception or else it will create the file and write into it 
+file = open("demo.txt","r")
+
+student_details = {}
+
+for line in file:
+    words = line.split(" ")
+    student_details[words[0]] = int(words[1])
+
+output = open("out.txt","x")
+
+for x in student_details:
+    mark = student_details[x]
+    if mark >= 90:
+        res = "Student Name: " + x + " Marks: " + str(student_details[x]) + " Grade: Exc"
+        output.write(res)
+        output.write("\n")
+    elif mark >= 80:
+        res = "Student Name: " + x + " Marks: " + str(student_details[x]) + " Grade: V Good"
+        output.write(res)
+        output.write("\n")    
+    elif mark >= 70:
+        res = "Student Name: " + x + " Marks: " + str(student_details[x]) + " Grade: Good"
+        output.write(res)
+        output.write("\n")   
+    else:
+        res = "Student Name: " + x + " Marks: " + str(student_details[x]) + " Grade: Failed"
+        output.write(res)
+        output.write("\n")
+
+# CSV file 
+
+import csv
+
+# csv file 
+file = open("Demo.csv","r")
+
+student_details = {}
+
+reader = csv.reader(file)
+
+for line in reader:
+    print(line)
+    student_details[line[0]] = int(line[1])
+
+print(student_details)
+
+output = open("out.csv","a")s
+
+writer = csv.writer(output)
+
+
+for x in student_details:
+    mark = student_details[x]
+    if mark >= 90:
+        list = []
+        list.append(x)
+        list.append(student_details[x])
+        list.append("Exc")
+        writer.writerow(list)
+    elif mark >= 80:
+        list = []
+        list.append(x)
+        list.append(student_details[x])
+        list.append("V. Good")
+        writer.writerow(list)  
+    elif mark >= 70:
+        list = []
+        list.append(x)
+        list.append(student_details[x])
+        list.append("Good")
+        writer.writerow(list)  
+    else:
+        list = []
+        list.append(x)
+        list.append(student_details[x])
+        list.append("Failed")
+        writer.writerow(list)
+
+# differnt types of databases 
+
+SQL -> Stuctured query language 
+Structured Database  -> relational database 
+
+Student 
+Name | Mark | Class | 
+X    | 90   | TEN   |
+Y    | 87   | ELE   |
+
+Student_Address 
+Name | Address |
+X    | Mumbai |
+Y    | BLR    |
+
+No SQL -> 
+Non Structured Database 
+
+Key Value format -> JSON, Dict 
+Programming Language 

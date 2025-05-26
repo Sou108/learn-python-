@@ -1,0 +1,138 @@
+import pandas as pd 
+
+# drop nan values from pandas dataframe 
+data = pd.read_csv("data.csv")
+
+#dataFrame = data.dropna()
+data.dropna(inplace=True)
+print(data)
+
+import pandas as pd 
+
+# replace nan values to something in pandas dataframe 
+data = pd.read_csv("data.csv")
+
+#dataFrame = data.fillna("NewValue")
+data.fillna("Newvalue", inplace=True)
+print(data)
+
+
+import pandas as pd 
+
+# replace nan values to something in pandas dataframe 
+data = pd.read_csv("data.csv")
+
+# replacing all Nan values with newValue 
+# replacing other columns Nan value with newValue
+# but the marks column will have the most repeated number instead Nan 
+
+# mode -> in a data, the most frequent value is mode 
+# [2,2,2,3,3,3,3,4,5,6,7,2,3,4,5] mode = [2]
+
+# extract the marks column
+marksColumn = data["Marks"]
+
+# get the mode 
+mode_marks = marksColumn.mode()[0]
+
+data["Marks"].fillna(mode_marks, inplace=True)
+
+data.fillna("NewValue", inplace=True)
+print(data)
+
+
+import pandas as pd 
+
+# replace nan values with mean 
+data = pd.read_csv("data.csv")
+
+# mean 
+# [2,3,4,5,6] = (2+3+4+5+6)/5 = 4.0
+
+marksColumn = data["Marks"]
+mean = marksColumn.mean()
+
+print(mean)
+
+data["Marks"].fillna(mean, inplace=True)
+data.fillna("Kuch Bhi", inplace=True)
+
+print(data)
+
+import pandas as pd 
+
+# replace nan values with median 
+data = pd.read_csv("data.csv")
+
+# median 
+# [10,8,3,4,5,6,25,24] median ? = 4 or 5 
+# [3,4,5,6,8,10,24,25] sorted list, 6 or 8 (number of elements is even)
+# [3,4,5,6,8,10,24,25,30] median - 8 
+
+marksColumn = data["Marks"]
+median = marksColumn.median()
+data["Marks"].fillna(median, inplace=True)
+data.fillna("Kuch Bhi", inplace=True)
+
+print(data)
+
+import pandas as pd 
+
+# replace nan values with median 
+data = pd.read_csv("data.csv")
+
+# iterate a data frame 
+# if marks is more than 90 then say pass or say fail 
+for ind in data.index:
+    marks = data.loc[ind, "Marks"]
+    name = data.loc[ind, "Name"]
+    sub = data.loc[ind, "Subject"]
+    if(marks >= 90):
+        print(name, " Passed in ", sub)
+    else:
+        print(name, " Failed in ", sub)
+
+
+import pandas as pd 
+
+# groupBy
+data = pd.read_csv("data.csv")
+
+dfGroup = data.groupby("Name")
+
+# iterate a group 
+for (x,y) in dfGroup:
+    print(x,y)
+
+
+import pandas as pd 
+
+# replace nan values with median 
+data = pd.read_csv("data.csv")
+
+# iterate a data frame 
+# if marks is more than 90 then say pass or say fail 
+for ind in data.index:
+    marks = data.loc[ind, "Marks"]
+    name = data.loc[ind, "Name"]
+    sub = data.loc[ind, "Subject"]
+    if(marks >= 90):
+        data.loc[ind, "Marks"] = "Pass"
+    else:
+        data.loc[ind, "Marks"] = "Fail"
+
+dfGroup = data.groupby("Marks")
+
+for x,y in dfGroup:
+    print(x,y)
+
+
+import pandas as pd 
+
+# concat
+data = pd.read_csv("data.csv")
+data1 = pd.read_csv("data.csv")
+
+result = pd.concat([data, data1,data,data1])
+
+print(result)

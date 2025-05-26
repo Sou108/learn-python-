@@ -1,0 +1,106 @@
+# keyword -> reserve word, which we can't use to declare var, method 
+# how many keywords are there in python ?
+import keyword
+
+print(keyword.kwlist)
+print(len(keyword.kwlist))
+
+# soft keywords 
+print(keyword.softkwlist)
+print(len(keyword.softkwlist))
+
+# boolean value 
+bool_var = False 
+
+# None -> empty or null value 
+none_var = None
+print(type(none_var))
+
+# True 
+bool_var = True 
+
+# and
+# 0 0 0 
+# 0 1 0
+# 1 0 0
+# 1 1 1
+
+# False False False 
+# False True  False
+# True False False 
+# True True True 
+
+bool_var1 = True
+bool_var2 = True 
+
+if bool_var1 and bool_var2:
+    print("Hey I am done")
+
+# as 
+import IAmNotAGoodBoyIAmVeryBad as iam
+
+print(iam.prop)
+
+# assert 
+normal_var = 20 
+
+assert normal_var == 20
+
+print("After the code")
+
+# def -> just to define the function, u can use the def keyword 
+def method():
+    print("hello")
+
+
+# del - delete something 
+x = 2
+del x 
+print(x)
+
+
+# if, else and elif 
+marks = 67 
+
+if(marks > 80): # equal check
+    print("V Good result")
+elif (marks > 70):
+    print("Good")
+else:
+    print("Bad result")
+
+
+# loop -> will help u to do a work multiple time 
+# for 
+for i in range(1,10):
+    print(i, "Python")
+
+# from 
+from Car import head
+
+# not
+# False True 
+# True False 
+
+bool_var = False 
+
+print(not bool_var)
+if not bool_var:
+    print("satisfied")
+
+# OR 
+# 0 0 0
+# 0 1 1
+# 1 0 1
+# 1 1 1
+
+# False False False
+# False True True
+# True False True 
+# True Ture True
+
+bool_var1 = False 
+bool_var2 = True
+
+if bool_var1 or bool_var2:
+    print("Any one of the condition satisfied")

@@ -1,0 +1,311 @@
+What is data ? 
+Anything user provides to the application is data 
+
+Who is providing data ? -> Users 
+
+Who is asking for the data ? -> Application 
+
+What application is doing with those data -> implementing the business
+    logic and storing data in different format 
+
+Where the application storing data ? -> DB (SQL, NO SQL, Storage System (S3, Google drive))
+
+SQL -> Stuctured data 
+=== 
+NO SQL -> Large amount of data 
+======
+
+
+Ayush 
+=====
+22nd Jan 
+3 Hours sports video 
+2 hours shorts 
+1 hour study 
+30 minutes for series 
+
+23nd Jan 
+2 Hours sports video 
+1.5 hours shorts 
+3 hour study 
+1 minutes for series 
+
+What is Data Science ?
+
+Logical reasoning 
+input output
+2 3     5 
+5 6     11 
+8 9     17 
+10 1    11 
+
+Establishing tools wich will help to understand the pattern by going through the previous data 
+
+What are those tools -> Machine Learning Models 
+
+
+input   output ?
+19 20   39 
+
+
+What is Data Analysis ? 
+Analyse the stored data for a meaningfull prediction/decision 
+=======================================================================
+requirements -> youtube should show the recommendation by traversing 
+    the customer hostory 
+PM + DS 
+
+1. Who is defining the requirements ? -> DS 
+2. Who is developing the model ? -> DS 
+3. Who is exposing the model for out side useres ? DS 
+4. Who will be using the models ?  DA 
+
+=======================================================================
+Workflow for data science/ analysis 
+
+1. Defination -> Defination of the requirement -> DS
+    a. Context  
+    b. Objective  
+    c. constrains  
+
+2. Collection -> collection of the data ->  DA
+    a. Techniques 
+    b. Security 
+    c. Data Management 
+
+3. Preparation -> Preparation of the data -> DA
+     a. data cleaning
+     b. data formatting 
+     c. future engineering   
+
+4. Exploration -> Explore the prepared data -> DS + DA 
+    a. Distribution analysis -> What kind of model u will be using
+    b. Dependency analysis 
+    c. data Segregation   
+
+5. Implementation -> DS
+    a. create a model 
+
+6. Analysis -> Analyse the data -> DA 
+    a. Training 
+    b. Testing 
+    c. Advance technique 
+
+7. Communication -> Inform the users about the analysis -> DA 
+    a. Dashboard 
+    b. logging 
+    c. monitoring 
+    d. Report and docmentation 
+
+======================================================================
+
+Joining (SQL)
+=======
+
+StudentData 
+===========
+
+Std_id| std_name| std_class 
+1001    Lakshay   3
+1002    Bhavya    6
+1003    Souradeep 2
+1004    Saswata   XII
+
+Std_id | std_address
+1001   | Ferozpur 
+1002   | UP 
+1003   | Kolkata 
+1004   | Durgapur 
+
+ask ? return the name and address and class 
+
+Lakshay 3 Ferozepur 
+
+using Joining 
+
+Joined Table 
+============
+
+Std_id| std_name| std_class | std_address
+1001    Lakshay   3         | Ferozpur
+1002    Bhavya    6         | UP
+1003    Souradeep 2         | Kolkata
+1004    Saswata   XII       | Durgapur 
+
+# inner, outer, left, right 
+
+# inner (intersection)
+
+Std_id| std_name| std_class 
+1001    Lakshay   3
+1002    Bhavya    6
+1003    Souradeep 2
+
+Std_id | std_address
+1001   | Ferozpur 
+1002   | UP 
+1003   | Kolkata 
+1004   | Durgapur 
+
+   std_id   std_name  std_class std_address
+0    1001    Lakshay          1  Fireozepur
+1    1002     Bhavya          2          UP
+2    1003  Souradeep          3     Kolkata
+
+
+import pandas as pd 
+
+# joining 
+table1 = {
+    "std_id":[1001,1002,1003],
+    "std_name":["Lakshay","Bhavya","Souradeep"],
+    "std_class":[1,2,3]
+}
+
+table2 = {
+    "std_id":[1001,1002,1003,1004],
+    "std_address":["Fireozepur","UP","Kolkata","Durgapur"]
+}
+
+# we can merge/join both these using pandas merging 
+df_left = pd.DataFrame(table1)
+df_right = pd.DataFrame(table2)
+
+# inner merging 
+res = df_left.merge(df_right,on="std_id", how="inner")
+
+print(res)
+
+# outer (union)
+
+Std_id| std_name| std_class 
+1001    Lakshay   3
+1002    Bhavya    6
+1003    Souradeep 2
+
+Std_id | std_address
+1001   | Ferozpur 
+1002   | UP 
+1003   | Kolkata 
+1004   | Durgapur 
+
+0    1001    Lakshay        1.0  Fireozepur
+1    1002     Bhavya        2.0          UP
+2    1003  Souradeep        3.0     Kolkata
+3    1004        NaN        NaN    Durgapur
+4    1005     Piyush        8.0         NaN
+
+import pandas as pd 
+
+# joining 
+table1 = {
+    "std_id":[1001,1002,1003,1005],
+    "std_name":["Lakshay","Bhavya","Souradeep","Piyush"],
+    "std_class":[1,2,3,8]
+}
+
+table2 = {
+    "std_id":[1001,1002,1003,1004],
+    "std_address":["Fireozepur","UP","Kolkata","Durgapur"]
+}
+
+# we can merge/join both these using pandas merging 
+df_left = pd.DataFrame(table1)
+df_right = pd.DataFrame(table2)
+
+# inner merging 
+res = df_left.merge(df_right,on="std_id", how="outer")
+
+print(res)
+
+# left 
+
+Std_id| std_name| std_class 
+1001    Lakshay   3
+1002    Bhavya    6
+1003    Souradeep 2
+1005    Piyush    8
+
+Std_id | std_address
+1001   | Ferozpur 
+1002   | UP 
+1003   | Kolkata 
+1004   | Durgapur 
+
+
+   std_id   std_name  std_class std_address
+0    1001    Lakshay          1  Fireozepur
+1    1002     Bhavya          2          UP
+2    1003  Souradeep          3     Kolkata
+3    1005     Piyush          8         NaN
+
+import pandas as pd 
+
+# joining 
+table1 = {
+    "std_id":[1001,1002,1003,1005],
+    "std_name":["Lakshay","Bhavya","Souradeep","Piyush"],
+    "std_class":[1,2,3,8]
+}
+
+table2 = {
+    "std_id":[1001,1002,1003,1004],
+    "std_address":["Fireozepur","UP","Kolkata","Durgapur"]
+}
+
+# we can merge/join both these using pandas merging 
+df_left = pd.DataFrame(table1)
+df_right = pd.DataFrame(table2)
+
+# inner merging 
+res = df_left.merge(df_right,on="std_id", how="left")
+
+print(res)
+
+# right 
+
+Std_id| std_name| std_class 
+1001    Lakshay   3
+1002    Bhavya    6
+1003    Souradeep 2
+1005    Piyush    8
+
+Std_id | std_address
+1001   | Ferozpur 
+1002   | UP 
+1003   | Kolkata 
+1004   | Durgapur 
+
+   std_id   std_name  std_class std_address
+0    1001    Lakshay        1.0  Fireozepur
+1    1002     Bhavya        2.0          UP
+2    1003  Souradeep        3.0     Kolkata
+3    1004        NaN        NaN    Durgapur
+
+import pandas as pd 
+
+# joining 
+table1 = {
+    "std_id":[1001,1002,1003,1005],
+    "std_name":["Lakshay","Bhavya","Souradeep","Piyush"],
+    "std_class":[1,2,3,8]
+}
+
+table2 = {
+    "std_id":[1001,1002,1003,1004],
+    "std_address":["Fireozepur","UP","Kolkata","Durgapur"]
+}
+
+# we can merge/join both these using pandas merging 
+df_left = pd.DataFrame(table1)
+df_right = pd.DataFrame(table2)
+
+# inner merging 
+res = df_left.merge(df_right,on="std_id", how="right")
+
+print(res)
+
+
+
+
+

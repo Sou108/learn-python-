@@ -1,0 +1,184 @@
+Package Manager  - Functional interface  bundle, Numpy 
+
+Python -> compiler and instructions of code 
+       -> data Science Modules, Machine Learning modules 
+
+
+Java Version - 7
+JVM -> functional interface 
+
+Java Version - 8 
+
+
+Pthon - 2 
+    -> Functional interface 
+
+pip install Functional_interface
+
+npm install Functional_interface
+
+Numpy -> bundle 
+
+pip install numpy 
+
+
+# numpy stands for numeric python 
+# numpy also provides some list type datastructure with some external benifits 
+#  1. An array object of arbitrary homogeneous items
+#  2. Fast mathematical operations over arrays
+#  3. Linear Algebra, Fourier Transforms, Random Number Generation
+import numpy as np 
+
+list = [1,2,3,4,5,6] # slow 
+print(type(list)) 
+
+# numpy array 
+## 'numpy.ndarray'
+npArr = np.array([1,2,3,4,5,6]) # very fast, # furier transform, # discrete math
+print(type(npArr)) 
+
+
+# dimesions 
+
+# 0 dimension 
+zeroDimen = np.array(3)
+print(np.shape(zeroDimen))
+
+# 1 dimension 
+# [1,2,3,4,5,6]
+oneDImen = np.array([1,2,3,4,5,6]) 
+print(np.shape(oneDImen))
+
+# 2 dimension 
+#  [1,2,3,4,5,6]
+#  [1,2,3,4,5,6]
+twoDImen = np.array([[1,2,3,4,5,6],[1,2,3,4,5,6]]) 
+print(np.shape(twoDImen))
+
+# 3 dimension 
+threeDimen = np.array([[[1,2,3,4,5,6],[1,2,3,4,5,6]],[[1,2,3,4,5,6],[1,2,3,4,5,6]]]) 
+print(np.shape(threeDimen))
+
+# 4 dimension 
+fourDimen = np.array([[[[1,2,3,4,5,6],[1,2,3,4,5,6]],[[1,2,3,4,5,6],[1,2,3,4,5,6]]],[[[1,2,3,4,5,6],[1,2,3,4,5,6]],[[1,2,3,4,5,6],[1,2,3,4,5,6]]]]) 
+print(np.shape(fourDimen))
+
+
+import numpy as np 
+
+# fetching element from numpy array 
+oneDImen = np.array([1,2,3,4,5,6]) 
+print(oneDImen[2])
+
+# iteration
+for i in oneDImen:
+    print(i)
+
+# index 
+for i in range(0,oneDImen.size):
+    print(oneDImen[i])
+
+# fetching element from numpy array 
+# 1,2,3,4,5,6 # 0,4
+# 1,2,3,4,5,6 # 1,2
+twoDImen = np.array([[1,2,3,4,5,6],[1,2,3,4,5,6]]) 
+print(twoDImen[0][4])
+
+# iteration
+for i in twoDImen:
+    for item in i:
+        print(item)
+
+
+for i in range(0,twoDImen.size):
+    for j in range(0, twoDImen[i].size):
+        print(twoDImen[i][j])
+
+
+import numpy as np 
+
+# fetching element from numpy array 
+oneDImen = np.array([1,2,3,4,5,6]) 
+
+# nditer 
+for item in np.nditer(oneDImen):
+    print(item)
+
+# iterating with index 
+for i, item in np.ndenumerate(oneDImen):
+    print(i, item)
+
+import numpy as np 
+
+list = [2,3,4,5,6,8,9,True,"String",2.0]
+print(list)
+
+# An array object of arbitrary homogeneous items
+npArray = np.array([2,3,4,5,6,8,9,True,"String",2.0])
+print(npArray)
+
+
+import numpy as np 
+
+# slicing 
+npArray = np.array([1,2,3,4,5,6])
+
+print(npArray[0:4])
+print(npArray[:4])
+print(npArray[2:5])
+print(npArray[2:])
+
+two = np.array([[1,2,3,4,5,6],[1,2,3,4,5,6]])
+print(two[0:2, 1:5])
+
+import numpy as np 
+
+# copy  
+npArray = np.array([1,2,3,4,5,6])
+copyNpArray = npArray.copy() # it will be allocating some memory 
+print(copyNpArray)
+
+npArray[4] = 200
+print(npArray)
+print(copyNpArray)
+
+import numpy as np 
+
+# view Arrary 
+npArr = np.array([2,3,4,5,6,7])
+viewNpArray = npArr.view()
+
+viewNpArray[3] = 1550
+print(npArr)
+print(viewNpArray)
+
+import numpy as np 
+
+# 1,2,3,4,5,6 = row = 2, col - 6
+# 1,2,3,4,5,6
+arr = np.array([[1,2,3,4,5,6],[7,8,9,10,11,12],[13,14,15,16,17,18]])
+
+print(arr.shape)
+print(np.shape(arr))
+
+# reshape 
+# 3*6 = 18 
+# 2*9 
+# 9*2 
+# 6*3
+# 1*18
+
+arr_reshape = arr.reshape(2,9)
+print(arr_reshape)
+
+arr_reshape = arr.reshape(9,2)
+print(arr_reshape)
+
+
+arr_reshape = arr.reshape(6,3)
+print(arr_reshape)
+
+arr_reshape = arr.reshape(1,18)
+print(arr_reshape)
+
+

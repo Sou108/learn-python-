@@ -1,0 +1,84 @@
+# pip install numpy 
+
+import numpy as np 
+
+arr = np.array([[2,3,4,5],[6,7,8,9],[10,11,12,13]])
+
+# row * col 
+# 2,3,4,5
+# 6,7,8,9
+# 10,11,12,13
+
+print(arr.shape)
+
+# 3*4 = 12 
+# 2*6
+# 6*2
+# 1*12
+# 12*1
+# 4*3
+
+arr_reshape = arr.reshape(6,2)
+print(arr_reshape)
+
+arr = np.array([[2,3,4,5],[6,7,8,9],[10,11,12,13]])
+
+# convert a 2D array to 1D array 
+arr_1d = arr.reshape(-1)
+
+print(arr_1d)
+
+import numpy as np 
+
+arr1 = np.array([[2,3,4,5],[6,7,8,9],[10,11,12,13]])
+arr2 = np.array([[20,30,40,50],[60,70,80,90],[100,110,120,130]])
+
+# concatenation of numpy array 
+concat_arr = np.concatenate((arr1, arr2))
+
+print(concat_arr)
+
+import numpy as np 
+
+arr = np.array([[2,3,4,5],[6,7,8,9],[10,11,12,13]])
+
+# convvert this into 1d 
+arr1d = arr.reshape(-1)
+
+list = []
+# iterate the numpy array 
+for item in arr1d:
+    if item % 2 == 0:
+       list.append(int(item))
+
+print(list)
+
+
+import numpy as np 
+
+arr = np.array([[2,3,4,5],[6,7,8,9],[10,11,12,13]])
+
+# convvert this into 1d 
+arr1d = arr.reshape(-1)
+
+print(arr1d)
+
+list = []
+# iterate the numpy array 
+for item in arr1d:
+    if item % 2 == 0:
+       list.append(True)
+    else:
+        list.append(False)
+
+print(list)
+
+print(arr1d[list])
+
+
+from numpy import random
+
+val = random.randint(low = 0,high=100, size=(12,12))
+
+val = random.rand(12,12,3)
+print(val)

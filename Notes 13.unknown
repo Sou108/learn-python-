@@ -1,0 +1,149 @@
+# pandas 
+# pip install pandas 
+
+import pandas as pd 
+
+# row*col 
+# BookList1 BookList2 Booklist3
+# His1      His2      His3
+# Math1     Math2     Math3
+# Phy1      Phy2      Phy3
+
+data = {
+    "BookList1" : ["His1",1,"Phy1",True],
+    "BookList2" : ["His2",2,"Phy2",False],
+    "BookList3" : ["His3",3,"Phy3",True]
+}
+
+print(data)
+
+# we are conerting a dict to pandas df
+pdDataFrame = pd.DataFrame(data)
+print(pdDataFrame)
+
+
+import pandas as pd 
+
+# series -> column
+
+book = ["Math","Phy","Chem","Bio"]
+
+print(book)
+
+# we will convert this list to pandas series 
+pdSeries = pd.Series(book)
+
+print(pdSeries)
+
+
+import pandas as pd 
+
+# series -> column
+
+book = {"Math","Phy","Chem","Bio"}
+
+print(book)
+
+# we will convert this list to pandas series 
+pdSeries = pd.Series(book, index=["a","b","c","d"])
+
+print(pdSeries)
+
+
+import pandas as pd 
+
+# series -> column
+
+data = {
+    "BookList1" : ["His1",1,"Phy1",True],
+    "BookList2" : ["His2",2,"Phy2",False],
+    "BookList3" : ["His3",3,"Phy3",True]
+}
+
+
+print(data)
+
+pdSeries = pd.Series(data)
+
+print(pdSeries)
+
+
+import pandas as pd 
+
+# series -> column
+
+data = {
+    "BookList1" : ["His1",1,"Phy1",True],
+    "BookList2" : ["His2",2,"Phy2",False],
+    "BookList3" : ["His3",3,"Phy3",True]
+}
+
+
+print(data)
+
+# we will convert this dictionary to pandas series 
+pdDataFrame = pd.DataFrame(data)
+
+# access pandas value 
+pdDataFrame1 = pdDataFrame.loc[[0,2]]
+print(type(pdDataFrame1))
+
+print(pdDataFrame.loc[[0,2]])
+
+
+import pandas as pd 
+
+# series -> column
+
+data = {
+    "BookList1" : ["His1",1,"Phy1",True],
+    "BookList2" : ["His2",2,"Phy2",False],
+    "BookList3" : ["His3",3,"Phy3",True]
+}
+
+
+print(data)
+
+# we will convert this dictionary to pandas series 
+pdDataFrame = pd.DataFrame(data, index = ["a","b","c","d"])
+
+# access pandas value 
+pdDataFrame1 = pdDataFrame.loc[["a","d"]]
+print(type(pdDataFrame1))
+
+print(pdDataFrame.loc[["a","d"]])
+
+import pandas as pd 
+
+# read a csv uusing pandas 
+pdDataFrame = pd.read_csv("data.csv")
+
+print(pdDataFrame)
+
+
+import pandas as pd 
+
+# read a json using pandas
+# what is json ? -> JavaScript object notation
+
+pdDataFrame = pd.read_json("data.json")
+
+print(pdDataFrame)
+
+
+import pandas as pd 
+
+pdDataFrame = pd.read_csv("data.csv")
+print(pd.options.display.max_rows)
+pd.options.display.max_rows = 300
+print(pdDataFrame)
+
+import pandas as pd 
+
+# CRUD operaton ?
+# Create, read, Update and delete 
+
+# SQl DB 
+
+StudentID | Name    | Class |Subject | Marks
+1001      | Lakshay | 10    | Math   | 88    -> rows 

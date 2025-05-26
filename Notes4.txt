@@ -1,0 +1,119 @@
+# Class 
+# Car -> A -> B 
+# seats, lights, wheels, body 
+# variables, data members 
+# methods 
+
+class Car:
+    # data memebrs 
+    seats = 5
+    lights = 7 
+    whells = 4
+    body = 1
+
+    # methods 
+    def protecting():
+        print("Body is protecting")
+
+# continue 
+# to give chocolates to students, those are have roll number more than 4 
+for rollNo in range(1,10):
+    if rollNo <= 4:
+        continue
+    
+    print("Hey ", rollNo, "You will be getting a chocolate")
+    print(rollNo)
+
+import asyncio
+
+# async -> it will help u to wait for future result
+#       -> to help for parallel execution 
+
+async def method(name):
+    print("Welcome", name)
+    # wait for 5 seconds 
+    await asyncio.sleep(5) # await is used to wait for something 
+    print("Bye", name)
+
+async def main():
+    await asyncio.gather(
+        method("Apurba"),
+        method("Saket"),
+        method("Khushi"),
+        method("Chitresh")
+    )
+
+asyncio.run(main())
+
+
+# break 
+for i in range(1,10):
+    print(i)
+    if(i == 5):
+        break
+
+# 'try', 'except', 'finally'
+def method(a, b):
+    try:
+        div = a/b
+        print(div)
+    except ZeroDivisionError:
+        print("Gadha hain tu!!")
+    finally:
+        print("I have completd the div")
+
+method(2,3)
+
+# while -> loop 
+i = 0
+
+while i<10:
+    print("i am learning python")
+    i+=1
+
+# global 
+a = 10 
+b = 5
+
+def method():
+    global a
+    a = a+5
+    print(a)
+
+method()
+
+# in 
+
+list = [1,2,4,5,6,7,8]
+
+if 5 in list:
+    print("5 is there")
+
+str = "I am learning python"
+
+if "am" in str:
+    print("am is present")
+
+# is 
+str = "123"
+str1 = "123"
+
+if str is str1:
+    print("equal")
+
+# lambda 
+
+# normal function 
+def method(a,b):
+    sum = a+b
+    return sum
+
+print(method(6,7))
+
+# lambda -> anom function, no return, functional programmis
+
+lambda_fun =  lambda a,b : a+b
+
+result = lambda_fun(2,3)
+print(result)
+

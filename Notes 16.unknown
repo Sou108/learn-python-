@@ -1,0 +1,94 @@
+# matplotlib -> its an external library which is used to plot data 
+#  install -> pip install matplotlib 
+# it will help us to visulize the data 
+# Pytplot is a library in matplotibe which is actually used for visulization
+# I need something to show the graph -> microsoft visual c++ 
+# https://aka.ms/vs/17/release/vc_redist.x64.exe
+
+import matplotlib.pyplot as plt 
+import numpy as np 
+
+# (x1,y1) (x2,y2) (x3,y3)
+# (1,2) (2,7) (5,9) (6,10)
+
+xpoints = np.array([1,2,5,6])
+ypoints = np.array([2,7,9,10])
+ 
+plt.plot(xpoints, ypoints)
+plt.show()
+
+import matplotlib.pyplot as plt 
+import numpy as np 
+
+# (x1,y1) (x2,y2) (x3,y3)
+# (1,2) (2,7) (5,9) (6,10)
+
+xpoints = np.array([1,2,5,6])
+ypoints = np.array([2,7,9,10])
+ 
+plt.plot(xpoints, ypoints, marker="*", ms=20, mec='r')
+plt.show()
+
+
+import matplotlib.pyplot as plt 
+import numpy as np 
+import pandas as pd 
+
+df = pd.read_csv("data.csv")
+avg_marks_by_class = df.groupby("Class")['Marks'].mean()
+
+# bar plot 
+avg_marks_by_class.plot(kind='bar')
+plt.ylabel("Avg Marks")
+plt.show()
+
+
+import matplotlib.pyplot as plt 
+import numpy as np 
+import pandas as pd 
+
+df = pd.read_csv("data.csv")
+total_marks = df.groupby("Name")['Marks'].sum().reset_index()
+
+# pie plot 
+#plt.bar(total_marks["Name"], total_marks["Marks"], color='r')
+plt.pie(total_marks['Marks'])
+plt.show()
+# plt.show()
+
+
+import matplotlib.pyplot as plt 
+import numpy as np 
+import pandas as pd 
+
+df = pd.read_csv("data.csv")
+total_marks = df.groupby("Name")['Marks'].sum().reset_index()
+
+# scatter plot
+plt.scatter(total_marks["Name"], total_marks["Marks"], color='g', marker='*')
+plt.ylabel("Total Marks")
+plt.show()
+# plt.show()
+
+
+import matplotlib.pyplot as plt 
+import numpy as np 
+import pandas as pd 
+
+# histogram 
+data = np.random.randn(1000)
+print(data)
+
+plt.hist(data)
+plt.show()
+
+
+import matplotlib.pyplot as plt 
+import numpy as np 
+import pandas as pd 
+
+df = pd.read_csv("data.csv")
+total_marks = df.groupby("Name")['Marks'].sum().reset_index()
+
+plt.hist(total_marks)
+plt.show()

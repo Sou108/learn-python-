@@ -1,0 +1,117 @@
+#Seaborn -> Seaborn is also an external python library which provides 
+#            extra customization on visualation
+# pip install seaborn
+
+# git -> Version Control tool 
+
+# Apurba           -> Create an android app 
+#                  -> Design 
+    # Saswata -> PartA -> Completed (file1,file2,file3)
+    # Lakshay  -> PartB -> file1,file2,file5
+    # Khushi -> PartC -> Completed (file1,file4,file5)
+    # Bhavya -> PartD -> 
+    # Samiksha -> Conflict in merging 
+    #          -> code are merged 
+
+# Version Control (Perforce, SVN, GIT)
+
+# Apurba           -> Create an android app 
+#                  -> Design 
+#            cloud -> Repo (Basic strcuture) -> master 
+    # Saswata -> PartA -> git pull -> code chanegs -> (b_s)git push -> Code Review
+    # Lakshay  -> PartB -> git pull -> code chanegs -> (b_l)git push
+    # Khushi -> PartC -> git pull -> code chanegs -> (b_k)git push
+    # Bhavya -> PartD -> git pull -> code chanegs -> (b_b)git push
+
+# -> conflict will be resolved by git automatically  
+
+# Seaborn -> I am giving u some extra modification on top of matplotlib
+        # -> Seaborn is providing me those data set 
+        # git repo -  https://github.com/mwaskom/seaborn-data
+
+
+import seaborn as sns 
+import pandas as pd 
+import matplotlib.pyplot as plt 
+
+df = pd.read_csv("data.csv") 
+sns.lineplot(x="Class", y="Marks", data= df)
+plt.title("This is a dummy plot")
+plt.show()
+
+
+import seaborn as sns 
+import pandas as pd 
+import matplotlib.pyplot as plt 
+
+df = sns.load_dataset("iris")
+sns.lineplot(x="sepal_length", y="sepal_width", data =df, palette="colorbind")
+plt.title("IRIS line plot")
+plt.show()
+
+import seaborn as sns 
+import pandas as pd 
+import matplotlib.pyplot as plt 
+
+# scatter 
+df = sns.load_dataset("iris")
+sns.scatterplot(x="sepal_length", y="sepal_width", data =df)
+plt.title("IRIS scatter plot")
+plt.show()
+
+
+import seaborn as sns 
+import pandas as pd 
+import matplotlib.pyplot as plt 
+
+# count 
+df = pd.read_csv("data.csv")
+sns.countplot(x="Class", data=df)
+plt.title("Count plot")
+plt.show()
+
+import seaborn as sns 
+import pandas as pd 
+import matplotlib.pyplot as plt 
+
+# box 
+df = pd.read_csv("data.csv")
+sns.boxplot(x="Class",y="Marks", data=df)
+plt.title("Box Plot")
+plt.show()
+
+
+
+import seaborn as sns 
+import pandas as pd 
+import matplotlib.pyplot as plt 
+
+# KDE (Kernel density estimate)
+# Bivarite KDE  plot 
+
+df = pd.read_csv("data.csv")
+sns.kdeplot(x="Class",y="Marks", data = df, fill=True)
+plt.show()
+
+
+import seaborn as sns 
+import pandas as pd 
+import matplotlib.pyplot as plt 
+
+df = pd.read_csv("data.csv")
+
+# Univarite KDE plot 
+sns.kdeplot(x="Marks", data=df, fill=True)
+plt.show()
+
+
+import seaborn as sns 
+import pandas as pd 
+import matplotlib.pyplot as plt 
+
+df = pd.read_csv("data.csv")
+
+sns.violinplot(x="Class",y="Marks", data=df)
+plt.show()
+
+

@@ -1,0 +1,74 @@
+Q. What is programming language ?
+	A language to communicate with computer for doing a particular task?
+	
+	print("Hello World")
+	
+	Computer will be understanding only 0 and 1 	
+	
+	2+3 = 5 
+	
+	Computer will be understanding only machine language
+			
+	programming language -> developers 
+	converting the programming language to machine language -> compiler 
+	who will be providing this compiler -> Python Package 
+
+=> High Level 
+Programming Language  				Machine Language 
+Human can easily understand			Human will not be able to understand easily 
+
+High Level Language 				low level language 
+Very close to human 				very close to computer 
+
+=> Open Source 
+Any think which will be is open source 
+
+==> Interpreted -> converting line by line 
+
+I am learning Python // line1 -> machine language 
+I have learned java // line2 -> machine language 
+I want to learn c++
+
+Compiled Language -> convert all the lines all together
+I am learning Python 
+I have learned java 
+I want to learn c++
+
+===> Convetional programming 
+
+file 
+-----
+-----
+-----
+-----
+-----
+-----
+-----
+-----
+-----
+
+OOPS -> OOPS predefined concepts
+
+Class1
+-----
+-----
+-----
+
+Class2
+-----
+-----
+-----
+
+Class3
+-----
+-----
+-----
+ 
+Q. What is Python ?
+	Python is a High Level, Open Source, Interpreted, Object oriented 
+	Programming Language 
+==========================================================================
+
+What is IDE ?
+
+Integrated developement environment 

@@ -1,0 +1,107 @@
+What is Arguments ?
+
+
+# Arguments -> values passing to the function 
+def demo():
+    print(" I am from demo")
+
+def add(a,b): # a, b are arguments 
+    return a+b
+
+print(add(2,3))
+
+def add(a,b,c): # a, b, c are arguments 
+    return a+b+c
+
+print(add(2,3,4))
+
+def add(a,b,c, d): # a, b, c, d are arguments 
+    return a+b+c+d
+
+print(add(2,3,4,5))
+
+# I want one add method which will be doing the exact same operation
+
+# arbitarty argumnents
+def add(*a):
+   return a[0]+a[1]+a[2]+a[3]
+
+print(add(2,3,4,5))
+
+#arbitary keyword arguments 
+def demo(**arg):
+    print(arg["a"])
+    print(arg["b"])
+    print(arg["c"])
+    print(arg["d"])
+
+demo(a="Apurba",b="Boolean",c="Character", d="Dog")
+
+# default params 
+def demo(a=2.0,b=3.0):
+    return a+b
+
+print(demo(17,18))
+
+
+# position only argument
+def demo(x, /):
+    print(x)
+
+demo(5)
+
+# keywords only argumnets
+def demo(*, x):
+    print(x)
+
+demo(x=5)
+
+# how can I take input form user 
+try:
+    input1 = int(input("Please provide some input: "))
+    input2 = int(input("Please provide some input: "))
+
+    sum = input1 + input2
+    print("result is ", sum)
+except ValueError:
+    print("please  provide a numeric input")
+
+# Step1 -> I will be having a number and will ask user to guess that number 
+# if it matches then we will say you successeded or else u fail 
+
+# Step2 -> I want to give some tries to the user 
+
+# Step3 ->I want to give some hints to the user whether he or she guessed 
+# greater or smaller value 
+
+# Step 4 -> If after all the tries, user unable to guess then 
+# I will say that you are a bad player 
+
+# Step 5 -> I will generate the number
+
+# we will take a range from user, range should be more than 50  
+
+import random,math
+
+lower = int(input("Please provide the lower range"))
+upper = int(input("please provide the upper range"))
+
+if upper - lower >= 50:
+    number = random.randint(lower,upper) 
+    tries = int(math.sqrt(number))
+
+    for i in range(tries):
+        guess = int(input("Please guess a number: "))
+
+        if(number == guess):
+            print("You guessed it successfully!! ")
+            break
+        elif(number > guess):
+            print("You can guess a large number, please retry: ")
+        else:
+            print("You can guess a small number, please retry: ")
+    else:
+        print("The correct number was", number)
+        print("You are a bad player")
+else: 
+    print("you have choosen a invalid range")

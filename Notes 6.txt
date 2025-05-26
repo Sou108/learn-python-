@@ -1,0 +1,132 @@
+# pass 
+def method():
+    pass 
+
+class Laptop:
+    pass
+
+
+# raise -> is the keyword, which is getting used to throw the exception
+
+def dev(a, b):
+    try:
+        raise ZeroDivisionError("error")
+        print(d)
+    except ZeroDivisionError:
+        print("You are providing worng input")
+
+dev(4,0)
+
+# return -> return something from the function 
+def method(a,b):
+    sum = a+b
+    return sum 
+
+res = method(2,4) 
+print(res)  
+
+# nonlocal 
+
+def outer():
+    x = 10 # local 
+    def inner():
+        nonlocal x
+        x = 5 
+        print("inner", x)
+    inner()
+    print("outer", x)
+
+outer()
+
+# with 
+with open("demo.txt", "r") as file:
+    content = file.read()
+
+
+# yield 
+
+def method(a,b):
+    sum = a+b
+    sub = a-b
+    mul = a*b
+    div = a/b
+    yield sum 
+    yield sub
+    yield mul 
+    yield div 
+
+res = method(3,4)
+
+for i in res:
+    print(i)
+
+# _ 
+for _ in range(0, 10):
+    for _ in range(0,5):
+        print("Apurba")
+
+# match, case 
+mark = 80 
+
+match mark:
+    case 80:
+        print("V. Good")
+    case 70:
+        print("Good")
+    case _:
+        print("Fail")
+
+# type 
+def get_type(n) -> type:
+    return type(n)
+
+a = 'a' 
+print(get_type(a))
+
+# type casting -> casting one type to other is your type casting 
+    # Inplicit type casting  -> managed by python 
+    # explicit type casting -> managed by developer 
+
+# implicit 
+a = 10
+print(type(a))
+b = 12.2
+print(type(b))
+str = "Apurba"
+print(type(str))
+
+a = 2  # implicit 
+a_decimal = float(a)
+
+str_a = "2"
+print(type(str_a))
+str_a_float = float(str_a)
+print(type(str_a_float))
+
+a = 2.2
+print(type(a))
+a_int = int(a)
+print(type(a_int))
+
+
+# ValueError: invalid literal for int() with base 10: 'Apurba'
+# error while type casting 
+try:
+    a = "Apurba"
+    a_int = int(a)
+except ValueError:
+    print("its not possible to convert")
+
+# debugging 
+
+for i in range(0,10):
+    a = 2 
+    b = 5 - i 
+    sum = a+b
+    sub = a-b
+    div = a/b
+    mul = a * b 
+    print(sum)
+    print(sub)
+    print(div)
+    print(mul)
